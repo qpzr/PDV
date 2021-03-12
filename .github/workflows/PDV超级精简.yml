@@ -12,7 +12,7 @@ env:
   DIY_P1_SH: mod.sh
   TZ: Asia/Shanghai
   images_dir: /opt/images
-  targets: "K2P_nano-5.0 RM2100 WR1200JS NEWIFI3"
+  targets: "K2P_nano-5.0 R2100 RM2100 WR1200JS NEWIFI3"
 
 jobs:
   build:
