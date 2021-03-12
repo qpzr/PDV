@@ -23,9 +23,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
       
-    - name: Initialization environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
+    - name: Prepare environment
       run: |
         sudo apt-get update
         sudo apt-get install libtool-bin gperf python-docutils autopoint gettext
@@ -35,12 +33,12 @@ jobs:
       run: |
         git clone --depth=1 $REPO_URL -b $REPO_BRANCH /opt/rt-n56u
  
-    - name: Load Prepare toolchain
+    - name: Prepare toolchain
       run: |
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh    
         
-    - name: Load custom configuration
+    - name: Custom configuration
       run: |
         chmod +x $DIY_P1_SH
         [ -e $DIY_P1_SH ] && mv $DIY_P1_SH /opt/rt-n56u/trunk
@@ -54,7 +52,7 @@ jobs:
         if [ $? = 0 ]; then cp -f images/*.trx ${images_dir}/$m.trx; else exit 1; fi; \
         ./clear_tree_simple >/dev/null 2>&1; done
         
-    - name: Git push assets to 空投回国
+    - name: Push
       run: |
         cd /opt/images
         git init
