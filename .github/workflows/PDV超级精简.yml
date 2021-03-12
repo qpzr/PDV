@@ -11,21 +11,27 @@ env:
   REPO_BRANCH: master
   DIY_P1_SH: mod.sh
   TZ: Asia/Shanghai
+  targets: ${{ matrix.targets }}
   images_dir: /opt/images
-  targets: "B70 DIR-878-5.0 DIR-882-5.0 K2P_nano-5.0 MI-R3G NEWIFI3 R2100 RM2100 RT-AC1200GU WR1200JS"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
+    
+    strategy:
+      matrix:
+       include:
+         - build_variant: "mt7621-7603-7612"
+           targets: "B70 MI-R3G NEWIFI3 RT-AC1200GU WR1200JS"
+         - build_variant: "mt7621-7615"
+           targets: "DIR-878-5.0 DIR-882-5.0 K2P_nano-5.0 R2100 RM2100"
 
     steps:
     - name: Checkout
       uses: actions/checkout@main
       
-    - name: Initialization environment
-      env:
-        DEBIAN_FRONTEND: noninteractive
+    - name: Prepare environment
       run: |
         sudo apt-get update
         sudo apt-get install libtool-bin gperf python-docutils autopoint gettext
@@ -54,7 +60,7 @@ jobs:
         if [ $? = 0 ]; then cp -f images/*.trx ${images_dir}/$m.trx; else exit 1; fi; \
         ./clear_tree_simple >/dev/null 2>&1; done
         
-    - name: Git push assets to 空投回国
+    - name: Git push assets to 
       run: |
         cd /opt/images
         git init
