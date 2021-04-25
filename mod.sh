@@ -10,5 +10,5 @@ echo '修改NTP2为中国NTP快速授时服务'
 sed -i "s/2001:470:0:50::2/cn.ntp.org.cn/g" ./user/shared/defaults.h
 
 echo '超级精简配置'
-sed -i '/CONFIG_FIRMWARE_ENABLE_USB/,$d' ./configs/templates/*.config
+sed -i '/### Enable USB support/,$d' ./configs/templates/*.config
 sed -i 's/#CONFIG_FIRMWARE_CPU_SLEEP/CONFIG_FIRMWARE_INCLUDE_LANG_CN/g' ./configs/templates/*.config
