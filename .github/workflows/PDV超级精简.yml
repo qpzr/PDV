@@ -8,7 +8,7 @@ on:
 
 env:
   REPO_URL: https://github.com/hanwckf/rt-n56u.git
-  REPO_BRANCH: main
+  REPO_BRANCH: master
   DIY_P1_SH: mod.sh
   TZ: Asia/Shanghai
   images_dir: /opt/images
