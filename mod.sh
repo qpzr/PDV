@@ -14,4 +14,4 @@ echo '超级精简配置'
 sed -i 's/#CONFIG_FIRMWARE_CPU_SLEEP/CONFIG_FIRMWARE_INCLUDE_LANG_CN/g' ./configs/templates/*.config
 sed -i '/### Enable USB support/,$d' ./configs/templates/*.config
 
-sed -i '17,71d' build_firmware_modify
+sed -i '21,27d' build_firmware_modify
