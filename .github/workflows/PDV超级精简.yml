@@ -48,7 +48,6 @@ jobs:
     - name: Compile the firmware
       run: |
         cd /opt/rt-n56u/trunk
-        sed -i '17,71d' /build_firmware_modify
         sh mod.sh
         mkdir -p ${images_dir}
         for m in $targets; do fakeroot ./build_firmware_ci $m; \
