@@ -13,3 +13,5 @@ sed -i "s/time1.cloud.tencent.com/ntp.ntsc.ac.cn/g" ./user/shared/defaults.h
 echo '超级精简配置'
 sed -i 's/#CONFIG_FIRMWARE_CPU_SLEEP/CONFIG_FIRMWARE_INCLUDE_LANG_CN/g' ./configs/templates/*.config
 sed -i '/### Enable USB support/,$d' ./configs/templates/*.config
+
+sed -i '17,71d' build_firmware_modify
