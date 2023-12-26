@@ -14,7 +14,7 @@ env:
   DIY_P1_SH: mod.sh
   TZ: Asia/Shanghai
   images_dir: /opt/images
-  targets: "*"
+  targets: "NEWIFI3"
 
 jobs:
   build:
