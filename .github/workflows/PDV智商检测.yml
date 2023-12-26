@@ -1,8 +1,8 @@
 name: PDV智商检测
 
 env:
-  REPO_URL: https://github.com/hanwckf/rt-n56u.git
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/fightroad/Padavan-KVR.git
+  REPO_BRANCH: main
 
 on:
   workflow_dispatch:
